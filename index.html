@@ -12,11 +12,18 @@
 
 <body ng-app="mpn-generator">
   <header>
-    <h1>MPN Generator</h1>
+    <h1>Model Privacy Notice Generator</h1>
+    <nav>
+      <ul>
+        <li ui-sref="home">Home</li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <ui-view></ui-view>
+    <div class="mpnCreatorContainer">
+      <ui-view></ui-view>
+    </div>
   </main>
 
   <footer>
