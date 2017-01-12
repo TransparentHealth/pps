@@ -57,6 +57,10 @@
             url: '/contact',
             templateUrl: './src/views/contact.html',
             controller: 'contactCtrl as contact'
+          }).state('view', {
+            url: '/view',
+            templateUrl: './src/views/view.html',
+            controller: 'viewCtrl as view'
           });
         });
 })();

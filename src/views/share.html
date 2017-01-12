@@ -1,20 +1,26 @@
-<h2>Share: How we share your data externally with other companies or entities</h2>
-<p>We share your identifiable data:</p>
-<ul>
-  <li>To provide the primary service of the app or technology</li>
-  <li>To conduct scientific research</li>
-  <li>For company operations (e.g. quality control or fraud detection)</li>
-  <li>To develop and improve new and current products and services (e.g., analytics)</li>
-  <li>Other:________</li>
-  <li>We DO NOT share your identifiable data</li>
-</ul>
-<p>We share your data AFTER removing identifiers (note that remaining data may not be anonymous):</p>
-<ul>
-  <li>To provide the primary service of the app or technology</li>
-  <li>To conduct scientific research</li>
-  <li>For company operations (e.g. quality control or fraud detection)</li>
-  <li>To develop and improve new and current products and services (e.g., analytics)</li>
-  <li>Other:________</li>
-  <li>We DO NOT share your data after removing identifiers</li>
-</ul>
-<button ui-sref="sell">Next</button>
+<header>
+  <h1>Sharing Data: How you share the user's data externally with other companies or entities</h1>
+</header>
+<main>
+  <h2>You share the user's identifiable data:</h2>
+  <ul>
+    <li><input type="checkbox" ng-model="share.primaryServiceWithId">To provide the primary service of your product</li>
+    <li><input type="checkbox" ng-model="share.scientificResearchWithId">To conduct scientific research</li>
+    <li><input type="checkbox" ng-model="share.companyOpsWithId">For company operations (e.g. quality control or fraud detection)</li>
+    <li><input type="checkbox" ng-model="share.developmentWithId">To develop and improve new and current products and services (e.g., analytics)</li>
+    <li><input type="checkbox" ng-model="share.otherWithId">Other <input type="text" ng-model="share.otherDescriptionWithId" ng-if="share.otherWithId" placeholder="Describe Data Sharing Here"></li>
+    <li><input type="checkbox" ng-model="share.noneWithId">You DO NOT share the user's identifiable data</li>
+  </ul>
+  <h2>You share the user's data AFTER removing identifiers (note that remaining data may still not be completely anonymous):</h2>
+  <ul>
+    <li><input type="checkbox" ng-model="share.primaryServiceNoId">To provide the primary service of your product</li>
+    <li><input type="checkbox" ng-model="share.scientificResearchNoId">To conduct scientific research</li>
+    <li><input type="checkbox" ng-model="share.companyOpsNoId">For company operations (e.g. quality control or fraud detection)</li>
+    <li><input type="checkbox" ng-model="share.developmentNoId">To develop and improve new and current products and services (e.g., analytics)</li>
+    <li><input type="checkbox" ng-model="share.otherNoId">Other <input type="text" ng-model="share.otherDescriptionNoId" ng-if="share.otherNoId" placeholder="Describe Data Sharing Here"></li>
+    <li><input type="checkbox" ng-model="share.noneNoId">You DO NOT share the user's data after removing identifiers</li>
+  </ul>
+</main>
+<footer>
+  <button ui-sref="sell">Next</button>
+</footer>

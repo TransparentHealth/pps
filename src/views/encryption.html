@@ -1,24 +1,29 @@
-<h2>Encryption: How we encrypt your data</h2>
-<p>Does the app or technology use encryption to…</p>
-<p>encrypt your data in the device or app?</p>
-<ul>
-  <li>Yes, by default</li>
-  <li>Yes, when you take certain steps (click to learn how)</li>
-  <li>No</li>
-  <li>N/A</li>
-</ul>
-<p>encrypt your data when stored on our company servers or with an outside cloud computing services provider? </p>
-<ul>
-  <li>Yes, by default</li>
-  <li>Yes, when you take certain steps (click to learn how)</li>
-  <li>No</li>
-  <li>N/A</li>
-</ul>
-<p>encrypt your data while it is transmitted?</p>
-<ul>
-  <li>Yes, by default</li>
-  <li>Yes, when you take certain steps (click to learn how)</li>
-  <li>No</li>
-  <li>N/A</li>
-</ul>
-<button ui-sref="privacy">Next</button>
+<header>
+  <h1>Encryption: How you encrypt the user's data</h1>
+</header>
+<main>
+  <h2>Does your product encrypt the user's data within the user's device or app?</h2>
+  <ul>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'Yes, by default'">Yes, by default</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'Yes, when you take certain steps'">Yes, when the user takes certain steps</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'No'">No</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'N/A'">N/A</li>
+  </ul>
+  <h2>Does your product encrypt the user's data when stored on your company servers or with an outside cloud computing services provider?</h2>
+  <ul>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'Yes, by default'">Yes, by default</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'Yes, when you take certain steps'">Yes, when the user takes certain steps</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'No'">No</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'N/A'">N/A</li>
+  </ul>
+  <h2>Does your product encrypt the user's data while it is transmitted?</h2>
+  <ul>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'Yes, by default'">Yes, by default</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'Yes, when you take certain steps'">Yes, when the user takes certain steps</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'No'">No</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'N/A'">N/A</li>
+  </ul>
+</main>
+<footer>
+  <button ui-sref="privacy">Next</button>
+</footer>

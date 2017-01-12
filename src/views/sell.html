@@ -1,14 +1,20 @@
-<h2>Sell: Who we sell your data to</h2>
-<p>We sell your identifiable data to data brokers, marketing, advertising networks, or analytics firms.</p>
-<ul>
-  <li>Yes</li>
-  <li>Yes; only with your permission</li>
-  <li>No</li>
-</ul>
-<p>We sell your data AFTER removing identifiers (note that remaining data may not be anonymous) to data brokers, marketing, advertising networks, or analytics firms.</p>
-<ul>
-  <li>Yes</li>
-  <li>Yes; only with your permission</li>
-  <li>No</li>
-</ul>
-<button ui-sref="store">Next</button>
+<header>
+  <h1>Selling Data: Who you sell the user's data to</h1>
+</header>
+<main>
+  <h2>You sell the user's identifiable data to data brokers, marketing, advertising networks, or analytics firms.</h2>
+  <ul>
+    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes'">Yes</li>
+    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes; only with your permission'">Yes; only with the user's permission</li>
+    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'No'">No</li>
+  </ul>
+  <h2>You sell the user's data AFTER removing identifiers (note that remaining data may still not be completely anonymous) to data brokers, marketing, advertising networks, or analytics firms.</h2>
+  <ul>
+    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'Yes'">Yes</li>
+    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'Yes; only with your permission'">Yes; only with the user's permission</li>
+    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'No'">No</li>
+  </ul>
+</main>
+<footer>
+  <button ui-sref="store">Next</button>
+</footer>

@@ -1,11 +1,17 @@
-<h2>Use: How we use your data internally</h2>
-<p>We collect and use your identifiable data:</p>
-<ul>
-  <li>To provide the primary service of the app or technology</li>
-  <li>To develop marketing materials for our products</li>
-  <li>To conduct scientific research</li>
-  <li>For company operations (e.g., quality control or fraud detection)</li>
-  <li>To develop and improve new and current products and services (e.g., analytics)</li>
-  <li>Other: _____ </li>
-</ul>
-<button ui-sref="share">Next</button>
+<header>
+  <h1>Using Data: How you use the user's data internally</h1>
+</header>
+<main>
+  <h2>You collect and use the user's identifiable data:</h2>
+  <ul>
+    <li><input type="checkbox" ng-model="use.primaryService">To provide the primary service of your product</li>
+    <li><input type="checkbox" ng-model="use.marketing">To develop marketing materials for your products</li>
+    <li><input type="checkbox" ng-model="use.scientificResearch">To conduct scientific research</li>
+    <li><input type="checkbox" ng-model="use.companyOps">For company operations (e.g., quality control or fraud detection)</li>
+    <li><input type="checkbox" ng-model="use.development">To develop and improve new and current products and services (e.g., analytics)</li>
+    <li><input type="checkbox" ng-model="use.other">Other <input type="text" ng-if="use.other" ng-model="use.otherDescription" placeholder="Describe data use here"></li>
+  </ul>
+</main>
+<footer>
+  <button ui-sref="share">Next</button>
+</footer>

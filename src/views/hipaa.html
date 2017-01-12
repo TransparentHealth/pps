@@ -1,4 +1,18 @@
-<h2>Directions for the health technology developer: If the health technology developer is a HIPAA covered entity, select one of the following statements to be inserted in the privacy notice:</h2>
-<p>Option 1: Please note that the health data we collect as part of this [insert name of technology product] are not protected by HIPAA and our company’s HIPAA Notice of Privacy Practices does not apply.</p>
-<p>Option 2: Some of the health data we collect as part of this [insert name of technology product] also are protected by HIPAA. Read our HIPAA Notice of Privacy Practices (embed link or popup] for more information.</p>
-<button ui-sref="use">Next</button>
+<header>
+  <h1>HIPAA Protection of Data</h1>
+</header>
+<main>
+  <h2>Select one of the following statements:</h2>
+  <p>
+    <input type="radio" name="hipaaOption" ng-model="hipaa.protected" ng-value="false"> The health data your product collects is not protected by HIPAA and your company’s HIPAA Notice of Privacy Practices does not apply.
+  </p>
+  <p>
+    <input type="radio" name="hipaaOption" ng-model="hipaa.protected" ng-value="true"> Some of the health data your product collects is protected by HIPAA.
+  </p>
+  <p ng-if="hipaa.protected">
+    Enter link to your HIPAA Notice of Privacy Practices: <input type="text" ng-model="hipaa.noticeUrl" placeholder="Enter Link Here">
+  </p>
+</main>
+<footer>
+  <button ui-sref="use">Next</button>
+</footer>
