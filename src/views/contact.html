@@ -1,15 +1,14 @@
 <header>
-  <h1>Contact</h1>
+  <h1>Contact Information</h1>
 </header>
 <main>
-  <h2>Contact Us</h2>
   <ul>
-    <li>[Legal Entity Name]</li>
-    <li>[Link to full privacy policy]</li>
-    <li>[Link to Online Comment/Contact Form]</li>
-    <li>[Email Address]</li>
-    <li>[Phone Number]</li>
-    <li>[Address; minimum, Country]</li>
+    <li>Legal Entity Name: <input type="text" ng-model="contact.name"></li>
+    <li>Link to full privacy policy: <input type="text" ng-model="contact.privacyPolicy"></li>
+    <li>Link to Online Comment/Contact Form: <input type="text" ng-model="contact.onlineComments"></li>
+    <li>Email Address: <input type="email" ng-model="contact.email"></li>
+    <li>Phone Number: <input type="tel" ng-model="contact.phone"></li>
+    <li>Address: <input type="text" ng-model="contact.address"></li>
   </ul>
 </main>
 <footer>

@@ -1,14 +1,13 @@
 <header>
-  <h1>Deactivation</h1>
+  <h1>Deactivation: What happens to the user's data when their account is deactivated</h1>
 </header>
 <main>
-  <h2>Deactivation: What happens to your data when your account is deactivated</h2>
-  <p>When your account is deactivated/terminated by you or the company, your data are… </p>
+  <h2>When the user's account is deactivated/terminated (by the user or by the company), their data is… </h2>
   <ul>
-    <li>Deleted immediately</li>
-    <li>Deleted after x years</li>
-    <li>Permanently retained and used</li>
-    <li>Retained and used until you request deletion</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteImmediately'">Deleted immediately</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteAfterXYears'">Deleted after <span ng-if="deactivation.action !== 'deleteAfterXYears'">__</span> <input type="number" min="0" ng-if="deactivation.action === 'deleteAfterXYears'" ng-model="deactivation.numYears"> years</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'neverDelete'">Permanently retained and used</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteOnRequest'">Retained and used until the user requests deletion</li>
   </ul>
 </main>
 <footer>

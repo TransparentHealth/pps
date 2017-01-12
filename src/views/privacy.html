@@ -1,28 +1,27 @@
 <header>
-  <h1>Privacy</h1>
+  <h1>Privacy: How your product accesses the user's device data</h1>
 </header>
 <main>
-  <h2>Privacy: How this technology accesses other data</h2>
-  <p>Will this technology or app request access to other device data or applications, such as your phone’s camera, photos, or contacts? </p>
+  <h2>Will your product request access to other device data or applications, such as the user's camera, photos, or contacts? </h2>
   <ul>
-    <li>Yes, only with your permission. It connects to...
-      <ul>
-        <li>Camera</li>
-        <li>Photos</li>
-        <li>Contacts</li>
-        <li>Location Services</li>
-        <li>Microphone</li>
-        <li>Health monitoring devices</li>
-        <li>Other: _____________ </li>
+    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="true">Yes, with the user's permission. It connects to...
+      <ul ng-if="privacy.requestPermissions">
+        <li><input type="checkbox" ng-model="privacy.camera">Camera</li>
+        <li><input type="checkbox" ng-model="privacy.photos">Photos</li>
+        <li><input type="checkbox" ng-model="privacy.contact">Contacts</li>
+        <li><input type="checkbox" ng-model="privacy.location">Location Services</li>
+        <li><input type="checkbox" ng-model="privacy.microphone">Microphone</li>
+        <li><input type="checkbox" ng-model="privacy.health">Health monitoring devices</li>
+        <li><input type="checkbox" ng-model="privacy.other">Other <input type="text" ng-model="privacy.otherDescription" placeholder="What else will you request access to?" ng-if="privacy.other"></li>
       </ul>
     </li>
-    <li>[If yes] Here is how you can check your settings, including permissions set as a default [If no] No </li>
+    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="false">No</li>
   </ul>
-  <p>Does this technology or app allow you to share the collected data with your social media accounts, like Facebook? </p>
+  <h2>Does your product share the user's data with social media accounts, like Facebook? </h2>
   <ul>
-    <li>Yes</li>
-    <li>Yes, only with your permission</li>
-    <li>[If yes] Here is how you can check your settings [If no] No</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes'">Yes</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes, only with your permission'">Yes, only with the user's permission</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'No'">No</li>
   </ul>
 </main>
 <footer>

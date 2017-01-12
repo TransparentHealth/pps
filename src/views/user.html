@@ -1,19 +1,18 @@
 <header>
-  <h1>User Options</h1>
+  <h1>User Options: What the user can do with the data your product collects</h1>
 </header>
 <main>
-  <h2>User Options: What you can do with the data that we collect</h2>
-  <p>Can you access, edit, share, or delete the data we have about you? </p>
+  <h2>Can the user access, edit, share, or delete the data your product has about them? </h2>
   <ul>
-    <li>Yes. You can...
-      <ul>
-        <li>Access your data</li>
-        <li>Edit your data</li>
-        <li>Share your data</li>
-        <li>Delete your data</li>
+    <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="true">Yes. The user can...
+      <ul ng-if="user.hasOptions">
+        <li><input type="checkbox" ng-model="user.access">Access the data</li>
+        <li><input type="checkbox" ng-model="user.edit">Edit the data</li>
+        <li><input type="checkbox" ng-model="user.share">Share the data</li>
+        <li><input type="checkbox" ng-model="user.delete">Delete the data</li>
       </ul>
     </li>
-    <li>[If yes] Here is how to do this [If no] No</li>
+    <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="false">No</li>
   </ul>
 </main>
 <footer>

@@ -38,20 +38,47 @@ body > main {
     border: 2px solid black;
     height: 70%;
     width: 70%;
-    overflow: scroll;
-    padding: 30px;
-    header {
+    padding: 40px 0;
+    nav {
+      border: 2px solid black;
+      position: absolute;
+      top: -40px;
+      height: 40px;
       width: 100%;
+      ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        li {
+          cursor: pointer;
+        }
+      }
+    }
+    header {
+      position: absolute;
+      top: 0;
+      height: 40px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
     }
     main {
       width: 100%;
-      margin: 20px 0;
+      padding: 0 40px;
       h2, label {
         width: 100%;
       }
     }
     footer {
+      position: absolute;
+      bottom: 0;
+      height: 40px;
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
     }
     .startBtn, .viewBtn {
       position: absolute;

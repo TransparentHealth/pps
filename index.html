@@ -13,15 +13,28 @@
 <body ng-app="mpn-generator">
   <header>
     <h1>Model Privacy Notice Generator</h1>
-    <nav>
-      <ul>
-        <li ui-sref="home">Home</li>
-      </ul>
-    </nav>
   </header>
 
   <main>
     <div class="mpnCreatorContainer">
+      <nav>
+        <ul>
+          <li ui-sref="home">Start Over</li>
+          <li ui-sref="hipaa">HIPAA</li>
+          <li ui-sref="use">Use</li>
+          <li ui-sref="share">Share</li>
+          <li ui-sref="sell">Sell</li>
+          <li ui-sref="store">Store</li>
+          <li ui-sref="encryption">Encryption</li>
+          <li ui-sref="privacy">Privacy</li>
+          <li ui-sref="user">User</li>
+          <li ui-sref="deactivation">Deactivation</li>
+          <li ui-sref="policy">Policy</li>
+          <li ui-sref="breach">Breach</li>
+          <li ui-sref="contact">Contact</li>
+          <li ui-sref="view">View</li>
+        </ul>
+      </nav>
       <ui-view></ui-view>
     </div>
   </main>
