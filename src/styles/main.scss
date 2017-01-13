@@ -79,15 +79,20 @@ body > main {
     }
     main {
       width: 100%;
+      min-height: 60%;
       padding: 0 40px;
       overflow: scroll;
       h2, label {
         width: 100%;
       }
+      &.preview {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     footer {
-      // position: absolute;
-      // bottom: 0;
       min-height: 100px;
       width: 100%;
       padding: 0 40px;
@@ -101,16 +106,21 @@ body > main {
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .previewBtn {
+      width: 150px;
+    }
   }
 }
 
 body > footer {
-  position: absolute;
-  bottom: 0;
   height: 40px;
   width: 100%;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+#previewCanvas {
+  border: 2px solid black;
 }
