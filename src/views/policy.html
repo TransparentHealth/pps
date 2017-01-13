@@ -3,7 +3,7 @@
 </header>
 <main>
   <h2>Describe how/if you will notify users of privacy policy changes (e.g. merger or acquisition). Provide link to section in privacy policy.</h2>
-  <textarea placeholder="Describe notification method here." ng-model="policy.notificationMethod"> </textarea>
+  <textarea placeholder="Describe notification method here." ng-model="policy.notificationMethod" ng-change="policy.updateData('policy.notificationMethod', policy.notificationMethod)"> </textarea>
 </main>
 <footer>
   <button ui-sref="breach">Next</button>

@@ -3,7 +3,7 @@
 </header>
 <main>
   <h2>You must comply with all applicable laws regarding breaches. Describe how you will notify the user and protect the user’s data in the case of a breach. Provide link to section in privacy policy.</h2>
-  <textarea placeholder="Describe your procedure in the event of a breach here." ng-model="breach.procedure"> </textarea>
+  <textarea placeholder="Describe your procedure in the event of a breach here." ng-model="breach.procedure" ng-change="breach.updateData('breach.procedure', breach.procedure)"> </textarea>
 </main>
 <footer>
   <button ui-sref="contact">Next</button>

@@ -4,10 +4,10 @@
 <main>
   <h2>When the user's account is deactivated/terminated (by the user or by the company), their data is… </h2>
   <ul>
-    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteImmediately'">Deleted immediately</li>
-    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteAfterXYears'">Deleted after <span ng-if="deactivation.action !== 'deleteAfterXYears'">__</span> <input type="number" min="0" ng-if="deactivation.action === 'deleteAfterXYears'" ng-model="deactivation.numYears"> years</li>
-    <li><input type="radio" ng-model="deactivation.action" ng-value="'neverDelete'">Permanently retained and used</li>
-    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteOnRequest'">Retained and used until the user requests deletion</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteImmediately'" ng-change="deactivation.updateData('deactivation.action', deactivation.action)">Deleted immediately</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteAfterXYears'" ng-change="deactivation.updateData('deactivation.action', deactivation.action)">Deleted after <span ng-if="deactivation.action !== 'deleteAfterXYears'">__</span> <input type="number" min="0" ng-if="deactivation.action === 'deleteAfterXYears'" ng-model="deactivation.numYears" ng-change="deactivation.updateData('deactivation.numYears', deactivation.numYears)"> years</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'neverDelete'" ng-change="deactivation.updateData('deactivation.action', deactivation.action)">Permanently retained and used</li>
+    <li><input type="radio" ng-model="deactivation.action" ng-value="'deleteOnRequest'" ng-change="deactivation.updateData('deactivation.action', deactivation.action)">Retained and used until the user requests deletion</li>
   </ul>
 </main>
 <footer>

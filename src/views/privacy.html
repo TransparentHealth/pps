@@ -4,24 +4,24 @@
 <main>
   <h2>Will your product request access to other device data or applications, such as the user's camera, photos, or contacts? </h2>
   <ul>
-    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="true">Yes, with the user's permission. It connects to...
-      <ul ng-if="privacy.requestPermissions">
-        <li><input type="checkbox" ng-model="privacy.camera">Camera</li>
-        <li><input type="checkbox" ng-model="privacy.photos">Photos</li>
-        <li><input type="checkbox" ng-model="privacy.contact">Contacts</li>
-        <li><input type="checkbox" ng-model="privacy.location">Location Services</li>
-        <li><input type="checkbox" ng-model="privacy.microphone">Microphone</li>
-        <li><input type="checkbox" ng-model="privacy.health">Health monitoring devices</li>
-        <li><input type="checkbox" ng-model="privacy.other">Other <input type="text" ng-model="privacy.otherDescription" placeholder="What else will you request access to?" ng-if="privacy.other"></li>
+    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'Yes'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)">Yes, with the user's permission. It connects to...
+      <ul ng-if="privacy.requestPermissions === 'Yes'">
+        <li><input type="checkbox" ng-model="privacy.camera" ng-change="privacy.updateData('privacy.camera', privacy.camera)">Camera</li>
+        <li><input type="checkbox" ng-model="privacy.photos" ng-change="privacy.updateData('privacy.photos', privacy.photos)">Photos</li>
+        <li><input type="checkbox" ng-model="privacy.contact" ng-change="privacy.updateData('privacy.contact', privacy.contact)">Contacts</li>
+        <li><input type="checkbox" ng-model="privacy.location" ng-change="privacy.updateData('privacy.location', privacy.location)">Location Services</li>
+        <li><input type="checkbox" ng-model="privacy.microphone" ng-change="privacy.updateData('privacy.microphone', privacy.microphone)">Microphone</li>
+        <li><input type="checkbox" ng-model="privacy.health" ng-change="privacy.updateData('privacy.health', privacy.health)">Health monitoring devices</li>
+        <li><input type="checkbox" ng-model="privacy.other" ng-change="privacy.updateData('privacy.other', privacy.other)">Other <input type="text" ng-model="privacy.otherDescription" placeholder="What else will you request access to?" ng-if="privacy.other" ng-change="privacy.updateData('privacy.otherDescription', privacy.otherDescription)"></li>
       </ul>
     </li>
-    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="false">No</li>
+    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'No'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)">No</li>
   </ul>
   <h2>Does your product share the user's data with social media accounts, like Facebook? </h2>
   <ul>
-    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes'">Yes</li>
-    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes, only with your permission'">Yes, only with the user's permission</li>
-    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'No'">No</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">Yes</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes, only with your permission'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">Yes, only with the user's permission</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'No'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">No</li>
   </ul>
 </main>
 <footer>

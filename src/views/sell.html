@@ -4,15 +4,15 @@
 <main>
   <h2>You sell the user's identifiable data to data brokers, marketing, advertising networks, or analytics firms.</h2>
   <ul>
-    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes'">Yes</li>
-    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes; only with your permission'">Yes; only with the user's permission</li>
-    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'No'">No</li>
+    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes'" ng-change="sell.updateData('sell.dataWithId', sell.dataWithId)">Yes</li>
+    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes; only with your permission'" ng-change="sell.updateData('sell.dataWithId', sell.dataWithId)">Yes; only with the user's permission</li>
+    <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'No'" ng-change="sell.updateData('sell.dataWithId', sell.dataWithId)">No</li>
   </ul>
   <h2>You sell the user's data AFTER removing identifiers (note that remaining data may still not be completely anonymous) to data brokers, marketing, advertising networks, or analytics firms.</h2>
   <ul>
-    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'Yes'">Yes</li>
-    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'Yes; only with your permission'">Yes; only with the user's permission</li>
-    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'No'">No</li>
+    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'Yes'" ng-change="sell.updateData('sell.dataNoId', sell.dataNoId)">Yes</li>
+    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'Yes; only with your permission'" ng-change="sell.updateData('sell.dataNoId', sell.dataNoId)">Yes; only with the user's permission</li>
+    <li><input type="radio" name="dataNoIdOption" ng-model="sell.dataNoId" ng-value="'No'" ng-change="sell.updateData('sell.dataNoId', sell.dataNoId)">No</li>
   </ul>
 </main>
 <footer>

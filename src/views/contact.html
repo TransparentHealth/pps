@@ -3,14 +3,14 @@
 </header>
 <main>
   <ul>
-    <li>Legal Entity Name: <input type="text" ng-model="contact.name"></li>
-    <li>Link to full privacy policy: <input type="text" ng-model="contact.privacyPolicy"></li>
-    <li>Link to Online Comment/Contact Form: <input type="text" ng-model="contact.onlineComments"></li>
-    <li>Email Address: <input type="email" ng-model="contact.email"></li>
-    <li>Phone Number: <input type="tel" ng-model="contact.phone"></li>
-    <li>Address: <input type="text" ng-model="contact.address"></li>
+    <li>Legal Entity Name:                    <input type="text"  ng-model="contact.name"           ng-change="contact.updateData('contact.name', contact.name)"></li>
+    <li>Link to full privacy policy:          <input type="text"  ng-model="contact.privacyPolicy"  ng-change="contact.updateData('contact.privacyPolicy', contact.privacyPolicy)"></li>
+    <li>Link to Online Comment/Contact Form:  <input type="text"  ng-model="contact.onlineComments" ng-change="contact.updateData('contact.onlineComments', contact.onlineComments)"></li>
+    <li>Email Address:                        <input type="email" ng-model="contact.email"          ng-change="contact.updateData('contact.email', contact.email)"></li>
+    <li>Phone Number:                         <input type="tel"   ng-model="contact.phone"          ng-change="contact.updateData('contact.phone', contact.phone)"></li>
+    <li>Address:                              <input type="text"  ng-model="contact.address"        ng-change="contact.updateData('contact.address', contact.address)"></li>
   </ul>
 </main>
 <footer>
-  <button ui-sref="view">View MPN</button>
+  <button ui-sref="view">Next</button>
 </footer>

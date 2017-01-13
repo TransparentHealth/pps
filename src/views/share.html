@@ -4,21 +4,21 @@
 <main>
   <h2>You share the user's identifiable data:</h2>
   <ul>
-    <li><input type="checkbox" ng-model="share.primaryServiceWithId">To provide the primary service of your product</li>
-    <li><input type="checkbox" ng-model="share.scientificResearchWithId">To conduct scientific research</li>
-    <li><input type="checkbox" ng-model="share.companyOpsWithId">For company operations (e.g. quality control or fraud detection)</li>
-    <li><input type="checkbox" ng-model="share.developmentWithId">To develop and improve new and current products and services (e.g., analytics)</li>
-    <li><input type="checkbox" ng-model="share.otherWithId">Other <input type="text" ng-model="share.otherDescriptionWithId" ng-if="share.otherWithId" placeholder="Describe Data Sharing Here"></li>
-    <li><input type="checkbox" ng-model="share.noneWithId">You DO NOT share the user's identifiable data</li>
+    <li><input type="checkbox" ng-model="share.primaryServiceWithId" ng-change="share.updateData('share.primaryServiceWithId', share.primaryServiceWithId)">To provide the primary service of your product</li>
+    <li><input type="checkbox" ng-model="share.scientificResearchWithId" ng-change="share.updateData('share.scientificResearchWithId', share.scientificResearchWithId)">To conduct scientific research</li>
+    <li><input type="checkbox" ng-model="share.companyOpsWithId" ng-change="share.updateData('share.companyOpsWithId', share.companyOpsWithId)">For company operations (e.g. quality control or fraud detection)</li>
+    <li><input type="checkbox" ng-model="share.developmentWithId" ng-change="share.updateData('share.developmentWithId', share.developmentWithId)">To develop and improve new and current products and services (e.g., analytics)</li>
+    <li><input type="checkbox" ng-model="share.otherWithId" ng-change="share.updateData('share.otherWithId', share.otherWithId)">Other <input type="text" ng-model="share.otherDescriptionWithId" ng-if="share.otherWithId" placeholder="Describe Data Sharing Here" ng-change="share.updateData('share.otherDescriptionWithId', share.otherDescriptionWithId)"></li>
+    <li><input type="checkbox" ng-model="share.noneWithId" ng-change="share.updateData('share.noneWithId', share.noneWithId)">You DO NOT share the user's identifiable data</li>
   </ul>
   <h2>You share the user's data AFTER removing identifiers (note that remaining data may still not be completely anonymous):</h2>
   <ul>
-    <li><input type="checkbox" ng-model="share.primaryServiceNoId">To provide the primary service of your product</li>
-    <li><input type="checkbox" ng-model="share.scientificResearchNoId">To conduct scientific research</li>
-    <li><input type="checkbox" ng-model="share.companyOpsNoId">For company operations (e.g. quality control or fraud detection)</li>
-    <li><input type="checkbox" ng-model="share.developmentNoId">To develop and improve new and current products and services (e.g., analytics)</li>
-    <li><input type="checkbox" ng-model="share.otherNoId">Other <input type="text" ng-model="share.otherDescriptionNoId" ng-if="share.otherNoId" placeholder="Describe Data Sharing Here"></li>
-    <li><input type="checkbox" ng-model="share.noneNoId">You DO NOT share the user's data after removing identifiers</li>
+    <li><input type="checkbox" ng-model="share.primaryServiceNoId" ng-change="share.updateData('share.primaryServiceNoId', share.primaryServiceNoId)">To provide the primary service of your product</li>
+    <li><input type="checkbox" ng-model="share.scientificResearchNoId" ng-change="share.updateData('share.scientificResearchNoId', share.scientificResearchNoId)">To conduct scientific research</li>
+    <li><input type="checkbox" ng-model="share.companyOpsNoId" ng-change="share.updateData('share.companyOpsNoId', share.companyOpsNoId)">For company operations (e.g. quality control or fraud detection)</li>
+    <li><input type="checkbox" ng-model="share.developmentNoId" ng-change="share.updateData('share.developmentNoId', share.developmentNoId)">To develop and improve new and current products and services (e.g., analytics)</li>
+    <li><input type="checkbox" ng-model="share.otherNoId" ng-change="share.updateData('share.otherNoId', share.otherNoId)">Other <input type="text" ng-model="share.otherDescriptionNoId" ng-if="share.otherNoId" placeholder="Describe Data Sharing Here" ng-change="share.updateData('share.otherDescriptionNoId', share.otherDescriptionNoId)"></li>
+    <li><input type="checkbox" ng-model="share.noneNoId" ng-change="share.updateData('share.noneNoId', share.noneNoId)">You DO NOT share the user's data after removing identifiers</li>
   </ul>
 </main>
 <footer>
