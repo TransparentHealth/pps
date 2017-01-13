@@ -48,6 +48,7 @@ body > main {
     border: 2px solid black;
     height: 85%;
     width: 85%;
+    overflow: scroll;
     nav {
       border-bottom: 2px solid black;
       width: 100%;
@@ -68,11 +69,13 @@ body > main {
       }
     }
     header {
-      height: 50px;
+      min-height: 50px;
       width: 100%;
+      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-around;
+      font-weight: bold;
     }
     main {
       width: 100%;
@@ -83,10 +86,11 @@ body > main {
       }
     }
     footer {
-      position: absolute;
-      bottom: 0;
-      height: 100px;
+      // position: absolute;
+      // bottom: 0;
+      min-height: 100px;
       width: 100%;
+      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-around;
