@@ -1,12 +1,10 @@
 <header>
   <button class="jsonBtn previewBtn" ng-click="view.viewJSON()">JSON</button>
-  <button class="summaryBtn previewBtn" ng-click="view.viewSummary()">Summary</button>
-  <button class="experimentalBtn previewBtn" ng-click="view.viewLock()">Experiment</button>
+  <button class="summaryBtn previewBtn" ng-click="view.viewSummary()">Regular Summary</button>
+  <button class="animatedBtn previewBtn" ng-click="view.viewAnimated()">Animated Summary</button>
 </header>
 <main class="preview">
   <div class="jsonPreview" ng-show="view.current === 'json'">{{view.jsonPreview}}</div>
   <div class="summaryPreview" ng-show="view.current === 'summary'"> </div>
-  <div class="lockPreview" ng-show="view.current === 'lock'">
-    <canvas id="previewCanvas" width="400px" height="500px"></canvas>
-  </div>
+  <div class="animatedPreview" ng-show="view.current === 'animate'"> </div>
 </main>
