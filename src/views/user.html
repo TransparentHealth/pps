@@ -2,7 +2,7 @@
   <h1>User Options: What the user can do with the data your product collects</h1>
 </header>
 <main>
-  <h2>Can the user access, edit, share, or delete the data your product has about them? </h2>
+  <h2>Can the user access, edit, share, or delete the data your product has about them?</h2>
   <ul>
     <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="'Yes'" ng-change="user.updateData('user.hasOptions', user.hasOptions)">Yes. The user can...
       <ul ng-if="user.hasOptions === 'Yes'">

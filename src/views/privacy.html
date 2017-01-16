@@ -2,7 +2,7 @@
   <h1>Privacy: How your product accesses the user's device data</h1>
 </header>
 <main>
-  <h2>Will your product request access to other device data or applications, such as the user's camera, photos, or contacts? </h2>
+  <h2>Will your product request access to other device data or applications, such as the user's camera, photos, or contacts?</h2>
   <ul>
     <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'Yes'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)">Yes, with the user's permission. It connects to...
       <ul ng-if="privacy.requestPermissions === 'Yes'">
@@ -17,7 +17,7 @@
     </li>
     <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'No'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)">No</li>
   </ul>
-  <h2>Does your product share the user's data with social media accounts, like Facebook? </h2>
+  <h2>Does your product share the user's data with social media accounts, like Facebook?</h2>
   <ul>
     <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">Yes</li>
     <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes, only with your permission'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">Yes, only with the user's permission</li>

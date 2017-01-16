@@ -82,7 +82,7 @@ body > main {
       min-height: 60%;
       padding: 0 40px;
       overflow: scroll;
-      h2, label {
+      h2, label, textarea {
         width: 100%;
       }
       &.preview {
@@ -119,6 +119,17 @@ body > footer {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.summaryPreview {
+  width: 400px;
+  font-size: 13px;
+  h3 {
+    font-weight: bold;
+  }
+  div {
+    margin: 10px;
+  }
 }
 
 #previewCanvas {
