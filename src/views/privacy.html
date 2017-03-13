@@ -3,8 +3,9 @@
 </header>
 <main>
   <h2>Will your product request access to other device data or applications, such as the user's camera, photos, or contacts?</h2>
+  <form name="privacyForm" novalidate>
   <ul>
-    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'Yes'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)">Yes, with the user's permission. It connects to...
+    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'Yes'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)" ng-required="!privacy.requestPermissions">Yes, with the user's permission. It connects to...
       <ul ng-if="privacy.requestPermissions === 'Yes'">
         <li><input type="checkbox" ng-model="privacy.camera" ng-change="privacy.updateData('privacy.camera', privacy.camera)">Camera</li>
         <li><input type="checkbox" ng-model="privacy.photos" ng-change="privacy.updateData('privacy.photos', privacy.photos)">Photos</li>
@@ -15,15 +16,20 @@
         <li><input type="checkbox" ng-model="privacy.other" ng-change="privacy.updateData('privacy.other', privacy.other)">Other <input type="text" ng-model="privacy.otherDescription" placeholder="What else will you request access to?" ng-if="privacy.other" ng-change="privacy.updateData('privacy.otherDescription', privacy.otherDescription)"></li>
       </ul>
     </li>
-    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'No'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)">No</li>
+    <li><input type="radio" name="privacy.requestPermissions" ng-model="privacy.requestPermissions" ng-value="'No'" ng-change="privacy.updateData('privacy.requestPermissions', privacy.requestPermissions)" ng-required="!privacy.requestPermissions">No</li>
   </ul>
   <h2>Does your product share the user's data with social media accounts, like Facebook?</h2>
   <ul>
-    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">Yes</li>
-    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes, only with your permission'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">Yes, only with the user's permission</li>
-    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'No'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)">No</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)" ng-required="!privacy.socialMedia">Yes</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'Yes, only with your permission'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)" ng-required="!privacy.socialMedia">Yes, only with the user's permission</li>
+    <li><input type="radio" name="privacy.socialMedia" ng-model="privacy.socialMedia" ng-value="'No'" ng-change="privacy.updateData('privacy.socialMedia', privacy.socialMedia)" ng-required="!privacy.socialMedia">No</li>
   </ul>
 </main>
 <footer>
-  <button ui-sref="user">Next</button>
+  <span ng-show="privacyForm.$invalid">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="encryption">Previous</button>
+  <button ng-disabled="privacyForm.$invalid" ui-sref="user">Next</button>
+</div>
+</form>
 </footer>

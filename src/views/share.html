@@ -3,7 +3,7 @@
 </header>
 <main>
   <h2>You share the user's identifiable data:</h2>
-  <ul>
+  <ul ng-init="share.checkStatus()">
     <li><input type="checkbox" ng-model="share.primaryServiceWithId" ng-change="share.updateData('share.primaryServiceWithId', share.primaryServiceWithId)">To provide the primary service of your product</li>
     <li><input type="checkbox" ng-model="share.scientificResearchWithId" ng-change="share.updateData('share.scientificResearchWithId', share.scientificResearchWithId)">To conduct scientific research</li>
     <li><input type="checkbox" ng-model="share.companyOpsWithId" ng-change="share.updateData('share.companyOpsWithId', share.companyOpsWithId)">For company operations (e.g. quality control or fraud detection)</li>
@@ -22,5 +22,8 @@
   </ul>
 </main>
 <footer>
-  <button ui-sref="sell">Next</button>
+  <span ng-show="!share.bothCheck">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="use">Previous</button>
+  <button ui-sref="sell" ng-disabled="!share.bothCheck">Next</button>
 </footer>

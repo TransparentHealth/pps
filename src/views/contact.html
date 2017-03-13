@@ -2,15 +2,19 @@
   <h1>Contact Information</h1>
 </header>
 <main>
+  <form name="contactForm">
   <ul>
     <li>Legal Entity Name:                    <input type="text"  ng-model="contact.name"           ng-change="contact.updateData('contact.name', contact.name)"></li>
-    <li>Link to full privacy policy:          <input type="text"  ng-model="contact.privacyPolicy"  ng-change="contact.updateData('contact.privacyPolicy', contact.privacyPolicy)"></li>
-    <li>Link to Online Comment/Contact Form:  <input type="text"  ng-model="contact.onlineComments" ng-change="contact.updateData('contact.onlineComments', contact.onlineComments)"></li>
-    <li>Email Address:                        <input type="email" ng-model="contact.email"          ng-change="contact.updateData('contact.email', contact.email)"></li>
+    <li>Link to full privacy policy:          <input type="url"  ng-model="contact.privacyPolicy" name="privacyLink"  ng-change="contact.updateData('contact.privacyPolicy', contact.privacyPolicy)"><span class="error" ng-show="contactForm.privacyLink.$error.url">Not a valid url!</span></li>
+    <li>Link to Online Comment/Contact Form:  <input type="url"  ng-model="contact.onlineComments" name="contactLink" ng-change="contact.updateData('contact.onlineComments', contact.onlineComments)"><span class="error" ng-show="contactForm.contactLink.$error.url">Not a valid url!</span></li>
+    <li>Email Address:                        <input type="email" ng-model="contact.email" name="contactEmail" ng-change="contact.updateData('contact.email', contact.email)"><span class="error" ng-show="contactForm.contactEmail.$error.email">Not a valid email!</span></li>
     <li>Phone Number:                         <input type="tel"   ng-model="contact.phone"          ng-change="contact.updateData('contact.phone', contact.phone)"></li>
     <li>Address:                              <input type="text"  ng-model="contact.address"        ng-change="contact.updateData('contact.address', contact.address)"></li>
   </ul>
 </main>
 <footer>
-  <button ui-sref="view">Next</button>
+  <div class="footButtons">
+  <button ui-sref="breach">Previous</button>
+  <button ng-disabled="!contactForm.$valid" ui-sref="view">Next</button>
+</form>
 </footer>

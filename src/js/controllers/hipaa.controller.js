@@ -4,4 +4,5 @@ angular.module('mpn-generator').controller('hipaaCtrl', function($state, $scope,
   this.updateData = function(name, newData) {
     JSONService.updateData(name, newData);
   };
+
 });

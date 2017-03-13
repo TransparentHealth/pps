@@ -36,7 +36,7 @@ $('#downloadButton').on('click', function(){
       var $summary = $(containerSelector).html('');
       // Summary Title
       var $header = $('<header id="infoDisplay"></header>');
-      var $keyList = $('<div id="key-list"><ul><li class="key-item"><div class="alert green">&#10003</div><p>&nbspSecure</p></li><li class="key-item"><div class="alert yellow">&#8252</div><p>&nbspAware</p></li><li class="key-item"><div class="alert red">&#8252</div><p>&nbspAlert</p></li><li class="key-item"><div class="alert pink">&quest;</div><p>&nbspQuestion</p></li></ul>' );
+      var $keyList = $('<div id="key-list"><ul><li class="key-item first"><p>Risk level:</p></li><li class="key-item"><div class="alert blue"></div><p>&nbspAttention</p></li><li class="key-item"><div class="alert green"></div><p>&nbspLow</p></li><li class="key-item"><div class="alert yellow"></div><p>&nbspMedium</p></li><li class="key-item"><div class="alert red"></div><p>&nbspHigh</p></li></ul>' );
       $header.append($keyList);
 
       // HIPAA Info
@@ -58,11 +58,11 @@ $('#downloadButton').on('click', function(){
       function setContainer(id, text, arrowClass) {
          var $statementContainer;
         if (id === 'red') {
-          $statementContainer = '<div class="answer"><div class="alert red">&#8252</div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass +'>&#10095</p></div></div>';
+          $statementContainer = '<div class="answer"><div class="alert red"></div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass +'>&#10095</p></div></div>';
         } else if (id === 'yellow') {
-          $statementContainer = '<div class="answer"><div class="alert yellow">&#8252</div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&#10095</p></div></div>';
+          $statementContainer = '<div class="answer"><div class="alert yellow"></div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&#10095</p></div></div>';
         } else {
-          $statementContainer = '<div class="answer"><div class="alert green">&#10003</div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&#10095</p></div></div>';
+          $statementContainer = '<div class="answer"><div class="alert green"></div><h4>' + text + '</h4><div class="more-arrow-container"><p id="more-info">info&nbsp</p><p class=' + arrowClass + '>&#10095</p></div></div>';
         }
         return $statementContainer;
       }
@@ -84,26 +84,26 @@ $('#downloadButton').on('click', function(){
       var $useInfo = $('<div class="use-info"></div>');
       $use.append("<h3>Use:</h3>");
       $use.append($useInfo);
-      $useInfo.append('<h5>We collect and use your identifiable data:</h5>');
-      var $useList = $('<ul>');
+      $useInfo.append('<div class="answer"><div class="alert blue"></div><h4>We collect and use your identifiable data:</h4></div>');
+      var $useList = $('<ul class="mpn-info-list">');
       $useInfo.append($useList);
       if (mpnData.use.primaryService) {
-          $useList.append('<li><p>&#9642; To provide the primary service of this product</p></li>');
+          $useList.append('<li><div class="mpn-point"></div><p>To provide the primary service of this product</p></li>');
       }
       if (mpnData.use.marketing) {
-          $useList.append('<li><p>&#9642; To develop marketing materials for our products</p></li>');
+          $useList.append('<li><div class="mpn-point"></div><p>To develop marketing materials for our products</p></li>');
       }
       if (mpnData.use.scientificResearch) {
-          $useList.append('<li><p>&#9642; To conduct scientific research</p></li>');
+          $useList.append('<li><div class="mpn-point"></div><p>To conduct scientific research</p></li>');
       }
       if (mpnData.use.companyOps) {
-          $useList.append('<li><p>&#9642; For company operations (e.g., quality control or fraud detection)</p></li>');
+          $useList.append('<li><div class="mpn-point"></div><p>For company operations (e.g., quality control or fraud detection)</p></li>');
       }
       if (mpnData.use.development) {
-          $useList.append('<li><p>&#9642; To develop and improve new and current products and services (e.g., analytics)</p></li>');
+          $useList.append('<li><div class="mpn-point"></div><p>To develop and improve new and current products and services (e.g., analytics)</p></li>');
       }
       if (mpnData.use.other) {
-          $useList.append('<li><p>&#9642; ' + mpnData.use.otherDescription + '</p></li>');
+          $useList.append('<li><div class="mpn-point"></div><p>' + mpnData.use.otherDescription + '</p></li>');
       }
       $useInfo.append("</ul>");
 
@@ -113,6 +113,7 @@ $('#downloadButton').on('click', function(){
       var $yourIdSell = $('<div class="id-sell"></div>');
       var $idShareInfo = $('<div class="share-info idShareHide"></div>');
       var $idSellInfo = $('<div class="sell-info idSellHide"></div>');
+      var $idShareList = $('<ul class="mpn-info-list">');
       $yourId.append("<h3>Your Identifiable Data:</h3>");
       $yourId.append($yourIdShare);
       $yourId.append($yourIdSell);
@@ -124,22 +125,24 @@ $('#downloadButton').on('click', function(){
           $yourIdShare.append(setContainer('red', 'We share your indentifiable data.', 'idShare-arrow'));
           $yourIdShare.append($idShareInfo);
           $idShareInfo.append("<h5>We share your data:</h5>");
+          $idShareInfo.append($idShareList);
           if (mpnData.share.primaryServiceWithId) {
-              $idShareInfo.append('<p>&#9642; To provide the primary service of the product</p>');
+              $idShareList.append('<li><div class="mpn-point"></div><p>To provide the primary service of the product</p></li>');
           }
           if (mpnData.share.scientificResearchWithId) {
-              $idShareInfo.append('<p>&#9642; To conduct scientific research</p>');
+              $idShareList.append('<li><div class="mpn-point"></div><p>To conduct scientific research</p></li>');
           }
           if (mpnData.share.companyOpsWithId) {
-              $idShareInfo.append('<p>&#9642; For company operations (e.g., quality control or fraud detection)</p>');
+              $idShareList.append('<li><div class="mpn-point"></div><p>For company operations (e.g., quality control or fraud detection)</p></li>');
           }
           if (mpnData.share.developmentWithId) {
-              $idShareInfo.append('<p>&#9642; To develop and improve new and current products and services (e.g., analytics)</p>');
+              $idShareList.append('<li><div class="mpn-point"></div><p>To develop and improve new and current products and services (e.g., analytics)</p></li>');
           }
           if (mpnData.share.otherWithId) {
-              $idShareInfo.append('<p>&#9642; ' + mpnData.share.otherDescriptionWithId + '</p>');
+              $idShareList.append('<li><div class="mpn-point"></div><p>' + mpnData.share.otherDescriptionWithId + '</p></li>');
           }
       }
+      $idShareList.append('</ul>');
       if (mpnData.sell.dataWithId === "Yes") {
         $yourIdSell.append(setContainer('red', 'We sell your identifiable data.', 'idSell-arrow'));
           $yourIdSell.append($idSellInfo);
@@ -159,6 +162,7 @@ $('#downloadButton').on('click', function(){
       var $yourNonIdShare = $('<div class="nonId-share"></div>');
       var $yourNonIdSell = $('<div class="nonId-sell"></div>');
       var $nonIdShareInfo = $('<div class="share-info nonShareHide"></div>');
+      var $nonIdShareList = $('<ul class="mpn-info-list">');
       var $nonIdSellInfo = $('<div class="sell-info nonSellHide"></div>');
       $yourNonId.append("<h3>Your Non-Identifiable Data:</h3>");
       $yourNonId.append($yourNonIdShare);
@@ -168,27 +172,29 @@ $('#downloadButton').on('click', function(){
           $yourNonIdShare.append($nonIdShareInfo);
           $nonIdShareInfo.append('<p>We DO NOT share your data after removing identifiers</p>');
       } else {
-          $yourNonIdShare.append(setContainer('red', 'We share your non-identifiable data.', 'nonIdShare-arrow'));
+          $yourNonIdShare.append(setContainer('yellow', 'We share your non-identifiable data.', 'nonIdShare-arrow'));
           $yourNonIdShare.append($nonIdShareInfo);
           $nonIdShareInfo.append("<h5>We share your data AFTER removing identifiers:</h5>");
+          $nonIdShareInfo.append($nonIdShareList);
           if (mpnData.share.primaryServiceNoId) {
-              $nonIdShareInfo.append('<p>&#9642; To provide the primary service of the product</p>');
+              $nonIdShareList.append('<li><div class="mpn-point"></div><p>To provide the primary service of the product</p></li>');
           }
           if (mpnData.share.scientificResearchNoId) {
-              $nonIdShareInfo.append('<p>&#9642; To conduct scientific research</p>');
+              $nonIdShareList.append('<li><div class="mpn-point"></div><p>To conduct scientific research</p></li>');
           }
           if (mpnData.share.companyOpsNoId) {
-              $nonIdShareInfo.append('<p>&#9642; For company operations (e.g., quality control or fraud detection)</p>');
+              $nonIdShareList.append('<li><div class="mpn-point"></div><p>For company operations (e.g., quality control or fraud detection)</p></li>');
           }
           if (mpnData.share.developmentNoId) {
-              $nonIdShareInfo.append('<p>&#9642; To develop and improve new and current products and services (e.g., analytics)</p>');
+              $nonIdShareList.append('<li><div class="mpn-point"></div><p>To develop and improve new and current products and services (e.g., analytics)</p></li>');
           }
           if (mpnData.share.otherNoId) {
-              $nonIdShareInfo.append('<p>&#9642; ' + mpnData.share.otherDescriptionNoId + '</p>');
+              $nonIdShareList.append('<li><div class="mpn-point"></div><p>' + mpnData.share.otherDescriptionNoId + '</p></li>');
           }
       }
+      $nonIdShareList.append('</ul>');
       if (mpnData.sell.dataNoId === "Yes") {
-          $yourNonIdSell.append(setContainer('red', 'We sell your non-identifiable data', 'nonIdSell-arrow'));
+          $yourNonIdSell.append(setContainer('yellow', 'We sell your non-identifiable data', 'nonIdSell-arrow'));
           $yourNonIdSell.append($nonIdSellInfo);
           $nonIdSellInfo.append("<p>We sell your data AFTER removing identifiers to data brokers, marketing, advertising networks, or analytics firms.</p>");
       } else if (mpnData.sell.dataNoId === "Yes. With your permission,") {
@@ -220,7 +226,7 @@ $('#downloadButton').on('click', function(){
       } else if (mpnData.encryption.device === "No") {
           $encryptionLocal.append(setContainer('red', 'We do not encrypt your data.'));
       } else {
-          $encryptionLocal.append('<div class="answer"><div class="alert pink">&quest;</div><h4>Will we encrypt your data within your device? Answer is N/A</h4></div>');
+          $encryptionLocal.append('<div class="answer"><div class="alert blue"></div><h4>Will we encrypt your data within your device? Answer is N/A</h4></div>');
       }
       $encryption.append($encryptionServer);
       if (mpnData.encryption.server === yesDefault) {
@@ -230,7 +236,7 @@ $('#downloadButton').on('click', function(){
       } else if (mpnData.encryption.server === "No") {
           $encryptionServer.append(setContainer('red', 'We do not encrypt your data when stored on our company servers or on the cloud.'));
       } else {
-          $encryptionServer.append('<div class="answer"><div class="alert pink">&quest;</div><h4>Will we encrypt your data when stored on our company servers or on the cloud? Answer is N/A</h4></div>');
+          $encryptionServer.append('<div class="answer"><div class="alert blue"></div><h4>Will we encrypt your data when stored on our company servers or on the cloud? Answer is N/A</h4></div>');
       }
       $encryption.append($encryptionTransmit);
       if (mpnData.encryption.transmit === yesDefault) {
@@ -240,7 +246,7 @@ $('#downloadButton').on('click', function(){
       } else if (mpnData.encryption.transmit === "No") {
           $encryptionTransmit.append(setContainer('red', 'We do not encrypt your data while it is transmitted.'));
       } else {
-          $encryptionTransmit.append('<div class="answer"><div class="alert pink">&quest;</div><h4>Will we encrypt your data while it is transmitted? Answer is N/A</h4></div>');
+          $encryptionTransmit.append('<div class="answer"><div class="alert blue"></div><h4>Will we encrypt your data while it is transmitted? Answer is N/A</h4></div>');
       }
 
       // Data Storing Info
@@ -265,61 +271,68 @@ $('#downloadButton').on('click', function(){
       var $user = $('<div class="mpn-user-access-container"></div>');
       var $userQuestion = $('<div id="user-qid"></div>');
       var $userOptions = $('<div class="user-options"></div>');
+      var $userOptionsList = $('<ul class="mpn-info-list">');
       $user.append("<h3>User Options:</h3>");
       $user.append($userQuestion);
-      $userQuestion.append('<div class="answer"><div class="alert pink">&quest;</div><h4>What can you do with your data?</h4></div>');
+      $userQuestion.append('<div class="answer"><div class="alert blue"></div><h4>What you can do with your data:</h4></div>');
       $userQuestion.append($userOptions);
       if (mpnData.user.hasOptions === 'Yes') {
           $userOptions.append("<h5>You can:</h5>");
+          $userOptions.append($userOptionsList);
           if (mpnData.user.access) {
-              $userOptions.append("<p>&#9642; Access the data</p>");
+              $userOptionsList.append('<li><div class="mpn-point"></div><p>Access the data</p></li>');
           }
           if (mpnData.user.edit) {
-              $userOptions.append("<p>&#9642; Edit the data</p>");
+              $userOptionsList.append('<li><div class="mpn-point"></div><p>Edit the data</p></li>');
           }
           if (mpnData.user.share) {
-              $userOptions.append("<p>&#9642; Share the data</p>");
+              $userOptionsList.append('<li><div class="mpn-point"></div><p>Share the data</p></li>');
           }
           if (mpnData.user.delete) {
-              $userOptions.append("<p>&#9642; Delete the data</p>");
+              $userOptionsList.append('<li><div class="mpn-point"></div><p>Delete the data</p></li>');
           }
       } else if (mpnData.user.hasOptions === 'No') {
-          $userOptions.append("<p>You can not access the data</p>");
+          $userOptionsList.append("<p>You can not access the data</p>");
       }
+      $userOptionsList.append('</ul>');
 
       // Privacy Info
       var $privacy = $('<div class="mpn-privacy-container"></div>');
       var $privacyAccess = $('<div class="privacy-access"></div>');
       var $privacyAccessInfo = $('<div class="privacy-access-info  privacyHide"></div>');
+      var $privacyAccessList = $('<ul class="mpn-info-list">');
       var $privacySocial = $('<div class="privacy-social"></div>');
       $privacy.append("<h3>Privacy:</h3>");
       $privacy.append($privacyAccess);
       if (mpnData.privacy.requestPermissions === 'Yes') {
           $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow'));
           $privacyAccess.append($privacyAccessInfo);
-          $privacyAccessInfo.append('<h5>We will request access to:</h5>')
+          $privacyAccessInfo.append('<h5>We will request access to:</h5>');
+          $privacyAccessInfo.append($privacyAccessList);
           if (mpnData.privacy.camera) {
-              $privacyAccessInfo.append('<p>&#9642; Camera</p>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>Camera</p></li>');
           }
           if (mpnData.privacy.photos) {
-              $privacyAccessInfo.append('<p>&#9642; Photos</p>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>Photos</p></li>');
           }
           if (mpnData.privacy.contact) {
-              $privacyAccessInfo.append('<p>&#9642; Contacts</p>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>Contacts</p></li>');
           }
           if (mpnData.privacy.location) {
-              $privacyAccessInfo.append('<p>&#9642; Location Services</p>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>Location Services</p></li>');
           }
           if (mpnData.privacy.microphone) {
-              $privacyAccessInfo.append('<p>&#9642; Microphone</p>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>Microphone</p></li>');
           }
           if (mpnData.privacy.health) {
-              $privacyAccessInfo.append('<p>&#9642; Health monitoring devices</p>');
+              $privacyAccessList.append('<li><div class="mpn-point"></div><p>Health monitoring devices</p></li>');
           }
           if (mpnData.privacy.other) {
-              $privacyAccessInfo.append('<p>&#9642; ' + mpnData.privacy.otherDescription + '</p>');
+              $privacyAccessInfo.append('<li><div class="mpn-point"></div><p>' + mpnData.privacy.otherDescription + '</p></li>');
           }
-      } else if (mpnData.privacy.requestPermissions === 'No') {
+          $privacyAccessList.append('</ul>');
+      }
+       else if (mpnData.privacy.requestPermissions === 'No') {
           $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.'));
       }
       $privacy.append($privacySocial);
@@ -359,7 +372,7 @@ $('#downloadButton').on('click', function(){
       var $policyInfo = $('<div class="policy-info"></div>');
       $policy.append("<h3>Policy Changes:</h3>");
       $policy.append($policyQuestion);
-      $policyQuestion.append('<div class="answer"><div class="alert pink">&quest;</div><h4>How will we notify you if our privacy policy changes?</h4></div>');
+      $policyQuestion.append('<div class="answer"><div class="alert blue"></div><h4>How we will notify you if our privacy policy changes:</h4></div>');
       if (mpnData.policy.notificationMethod) {
           var $formText = $('<p>').text(mpnData.policy.notificationMethod);
           $policyQuestion.append($policyInfo);
@@ -371,7 +384,7 @@ $('#downloadButton').on('click', function(){
       var $breachInfo = $('<div class="breach-info"></div>');
       $breach.append("<h3> Data Breach:</h3>");
       $breach.append($breachQuestion);
-      $breachQuestion.append('<div class="answer"><div class="alert pink">&quest;</div><h4>How will we notify you and protect your data in case of an improper disclosure?</h4></div>');
+      $breachQuestion.append('<div class="answer"><div class="alert blue"></div><h4>How we will notify you and protect your data in case of an improper disclosure:</h4></div>');
       if (mpnData.breach.procedure) {
           var $formText = mpnData.breach.procedure;
           $breachQuestion.append($breachInfo);
@@ -439,14 +452,16 @@ $('#downloadButton').on('click', function(){
       }
       if (width <= 420) {
         $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "75%"});
-        $('.policyDisplay #key-list .key-item:first-child').css("margin-left", "20px");
-        $('.policyDisplay #key-list .key-item.active').css("padding", " 0 2px 0 2px");
-        $('.policyDisplay #key-list .alert').css({"height": "25px", "width": "25px"});
+        $('.policyDisplay #key-list .key-item.active').css("padding", " 0 4px 0 4px");
         $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "80%", "margin": "0 0 0 40px"});
       }
+      if (width <= 380) {
+      $('.policyDisplay #key-list .key-item.active').css("padding", " 0 3px 0 3px");
+      }
   });
-//key-list animation
+
   var parent = $('.policyDisplay').parent();
+
   $(parent).scroll(function() {
      var height = $(parent).scrollTop();
      var width = $(window).width()
@@ -493,8 +508,7 @@ $('#downloadButton').on('click', function(){
   });
   }
 
-   createDisplay();
-
+  createDisplay();
 
   };
 });

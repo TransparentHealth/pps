@@ -3,16 +3,22 @@
 </header>
 <main>
   <h2>Is the user's data stored on the user's device?</h2>
+  <form name="storeForm" novalidate>
   <ul>
-    <li><input type="radio" name="store.deviceOption" ng-model="store.device" ng-value="'Yes'" ng-change="store.updateData('store.device', store.device)">Yes</li>
-    <li><input type="radio" name="store.deviceOption" ng-model="store.device" ng-value="'No'" ng-change="store.updateData('store.device', store.device)">No</li>
+    <li><input type="radio" name="store.deviceOption" ng-model="store.device" ng-value="'Yes'" ng-change="store.updateData('store.device', store.device)" ng-required="!store.device">Yes</li>
+    <li><input type="radio" name="store.deviceOption" ng-model="store.device" ng-value="'No'" ng-change="store.updateData('store.device', store.device)" ng-required="!store.device">No</li>
   </ul>
   <h2>Is the user's data stored outside the user's device at your company or through a third party?</h2>
   <ul>
-    <li><input type="radio" name="store.externalOption" ng-model="store.external" ng-value="'Yes'" ng-change="store.updateData('store.external', store.external)">Yes</li>
-    <li><input type="radio" name="store.externalOption" ng-model="store.external" ng-value="'No'" ng-change="store.updateData('store.external', store.external)">No</li>
+    <li><input type="radio" name="store.externalOption" ng-model="store.external" ng-value="'Yes'" ng-change="store.updateData('store.external', store.external)" ng-required="!store.external">Yes</li>
+    <li><input type="radio" name="store.externalOption" ng-model="store.external" ng-value="'No'" ng-change="store.updateData('store.external', store.external)" ng-required="!store.external">No</li>
   </ul>
 </main>
 <footer>
-  <button ui-sref="encryption">Next</button>
+  <span ng-show="storeForm.$invalid">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="sell">Previous</button>
+  <button ng-disabled="storeForm.$invalid" ui-sref="encryption">Next</button>
+</div>
+</form>
 </footer>

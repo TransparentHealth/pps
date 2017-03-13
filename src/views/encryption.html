@@ -3,27 +3,33 @@
 </header>
 <main>
   <h2>Does your product encrypt the user's data within the user's device or app?</h2>
+  <form name="encryptForm" novalidate>
   <ul>
-    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'Yes, by default'" ng-change="encryption.updateData('encryption.device', encryption.device)">Yes, by default</li>
-    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'Yes, when you take certain steps'" ng-change="encryption.updateData('encryption.device', encryption.device)">Yes, when the user takes certain steps</li>
-    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'No'" ng-change="encryption.updateData('encryption.device', encryption.device)">No</li>
-    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'N/A'" ng-change="encryption.updateData('encryption.device', encryption.device)">N/A</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'Yes, by default'" ng-change="encryption.updateData('encryption.device', encryption.device)" ng-required="!encryption.device">Yes, by default</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'Yes, when you take certain steps'" ng-change="encryption.updateData('encryption.device', encryption.device)" ng-required="!encryption.device">Yes, when the user takes certain steps</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'No'" ng-change="encryption.updateData('encryption.device', encryption.device)" ng-required="!encryption.device">No</li>
+    <li><input type="radio" name="encryption.deviceOption" ng-model="encryption.device" ng-value="'N/A'" ng-change="encryption.updateData('encryption.device', encryption.device)" ng-required="!encryption.device">N/A</li>
   </ul>
   <h2>Does your product encrypt the user's data when stored on your company servers or with an outside cloud computing services provider?</h2>
   <ul>
-    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'Yes, by default'" ng-change="encryption.updateData('encryption.server', encryption.server)">Yes, by default</li>
-    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'Yes, when you take certain steps'" ng-change="encryption.updateData('encryption.server', encryption.server)">Yes, when the user takes certain steps</li>
-    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'No'" ng-change="encryption.updateData('encryption.server', encryption.server)">No</li>
-    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'N/A'" ng-change="encryption.updateData('encryption.server', encryption.server)">N/A</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'Yes, by default'" ng-change="encryption.updateData('encryption.server', encryption.server)" ng-required="!encryption.server">Yes, by default</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'Yes, when you take certain steps'" ng-change="encryption.updateData('encryption.server', encryption.server)" ng-required="!encryption.server">Yes, when the user takes certain steps</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'No'" ng-change="encryption.updateData('encryption.server', encryption.server)" ng-required="!encryption.server">No</li>
+    <li><input type="radio" name="encryption.serverOption" ng-model="encryption.server" ng-value="'N/A'" ng-change="encryption.updateData('encryption.server', encryption.server)" ng-required="!encryption.server">N/A</li>
   </ul>
   <h2>Does your product encrypt the user's data while it is transmitted?</h2>
   <ul>
-    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'Yes, by default'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)">Yes, by default</li>
-    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'Yes, when you take certain steps'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)">Yes, when the user takes certain steps</li>
-    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'No'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)">No</li>
-    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'N/A'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)">N/A</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'Yes, by default'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)" ng-required="!encryption.transmit">Yes, by default</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'Yes, when you take certain steps'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)" ng-required="!encryption.transmit">Yes, when the user takes certain steps</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'No'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)" ng-required="!encryption.transmit">No</li>
+    <li><input type="radio" name="encryption.transmitOption" ng-model="encryption.transmit" ng-value="'N/A'" ng-change="encryption.updateData('encryption.transmit', encryption.transmit)" ng-required="!encryption.transmit">N/A</li>
   </ul>
 </main>
 <footer>
-  <button ui-sref="privacy">Next</button>
+  <span ng-show="encryptForm.$invalid">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="store">Previous</button>
+  <button ng-disabled="encryptForm.$invalid" ui-sref="privacy">Next</button>
+</div>
+</form>
 </footer>

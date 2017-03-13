@@ -3,16 +3,23 @@
 </header>
 <main>
   <h2>Select one of the following statements:</h2>
+  <form name="hipaaForm" novalidate>
   <p>
-    <input type="radio" name="hipaaOption" ng-model="hipaa.protected" ng-value="'No'" ng-change="hipaa.updateData('hipaa.protected', hipaa.protected)"> The health data your product collects is not protected by HIPAA and your company’s HIPAA Notice of Privacy Practices does not apply.
+    <input type="radio" name="hipaaOption" ng-model="hipaa.protected" ng-value="'No'" ng-change="hipaa.updateData('hipaa.protected', hipaa.protected)" ng-required="!hippa.protected"> The health data your product collects is not protected by HIPAA and your company’s HIPAA Notice of Privacy Practices does not apply.
   </p>
   <p>
-    <input type="radio" name="hipaaOption" ng-model="hipaa.protected" ng-value="'Yes'" ng-change="hipaa.updateData('hipaa.protected', hipaa.protected)"> Some of the health data your product collects is protected by HIPAA.
+    <input type="radio" name="hipaaOption" ng-model="hipaa.protected" ng-value="'Yes'" ng-change="hipaa.updateData('hipaa.protected', hipaa.protected)" ng-required="!hippa.protected"> Some of the health data your product collects is protected by HIPAA.
   </p>
   <p ng-if="hipaa.protected === 'Yes'">
-    Enter link to your HIPAA Notice of Privacy Practices: <input type="text" ng-model="hipaa.noticeUrl" placeholder="Enter Link Here" ng-change="hipaa.updateData('hipaa.noticeUrl', hipaa.noticeUrl)">
+    Enter link to your HIPAA Notice of Privacy Practices: <input type="url" ng-model="hipaa.noticeUrl" name="hipaaUrl" ng-required="hipaa.protected" placeholder="Enter Link Here" ng-change="hipaa.updateData('hipaa.noticeUrl', hipaa.noticeUrl)"> <span class="error" ng-show="hipaaForm.hipaaUrl.$error.url">
+      Not a valid url!</span>
   </p>
 </main>
 <footer>
-  <button ui-sref="use">Next</button>
+  <span ng-show="!hipaaForm.$valid">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="home">Previous</button>
+  <button ng-disabled="!hipaaForm.$valid" ui-sref="use">Next</button>
+</div>
+</form>
 </footer>

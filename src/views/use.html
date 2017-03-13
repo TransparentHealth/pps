@@ -3,7 +3,7 @@
 </header>
 <main>
   <h2>You collect and use the user's identifiable data:</h2>
-  <ul>
+  <ul ng-init="use.checkStatus()">
     <li><input type="checkbox" ng-model="use.primaryService" ng-change="use.updateData('use.primaryService', use.primaryService)">To provide the primary service of your product</li>
     <li><input type="checkbox" ng-model="use.marketing" ng-change="use.updateData('use.marketing', use.marketing)">To develop marketing materials for your products</li>
     <li><input type="checkbox" ng-model="use.scientificResearch" ng-change="use.updateData('use.scientificResearch', use.scientificResearch)">To conduct scientific research</li>
@@ -13,5 +13,9 @@
   </ul>
 </main>
 <footer>
-  <button ui-sref="share">Next</button>
+  <span ng-show="!use.useChecked">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="hipaa">Previous</button>
+  <button ui-sref="share" ng-disabled="!use.useChecked">Next</button>
+</div>
 </footer>

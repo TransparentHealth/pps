@@ -1,7 +1,7 @@
 <header>
   <h1>Selling Data: Who you sell the user's data to</h1>
 </header>
-<main>
+<main ng-init="sell.checkStatus()">
   <h2>You sell the user's identifiable data to data brokers, marketing, advertising networks, or analytics firms.</h2>
   <ul>
     <li><input type="radio" name="dataWithIdOption" ng-model="sell.dataWithId" ng-value="'Yes'" ng-change="sell.updateData('sell.dataWithId', sell.dataWithId)">Yes</li>
@@ -16,5 +16,9 @@
   </ul>
 </main>
 <footer>
-  <button ui-sref="store">Next</button>
+  <span ng-show="!sell.dataBothCheck">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="share">Previous</button>
+  <button ui-sref="store" ng-disabled="!sell.dataBothCheck">Next</button>
+</div>
 </footer>

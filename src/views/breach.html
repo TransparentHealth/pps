@@ -3,8 +3,14 @@
 </header>
 <main>
   <h2>You must comply with all applicable laws regarding breaches. Describe how you will notify the user and protect the user’s data in the case of a breach. Provide link to section in privacy policy.</h2>
-  <textarea placeholder="Describe your procedure in the event of a breach here." ng-model="breach.procedure" ng-change="breach.updateData('breach.procedure', breach.procedure)"> </textarea>
+  <form name="breachForm" novalidate>
+  <textarea placeholder="Describe your procedure in the event of a breach here." name="breachText" ng-model="breach.procedure" ng-change="breach.updateData('breach.procedure', breach.procedure)" required> </textarea>
 </main>
 <footer>
-  <button ui-sref="contact">Next</button>
+  <span ng-show="!breachForm.breachText.$dirty">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="policy">Previous</button>
+  <button ng-disabled="!breachForm.breachText.$dirty" ui-sref="contact">Next</button>
+</div>
+</form>
 </footer>

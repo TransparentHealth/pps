@@ -3,8 +3,9 @@
 </header>
 <main>
   <h2>Can the user access, edit, share, or delete the data your product has about them?</h2>
+  <form name="userForm" novalidate>
   <ul>
-    <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="'Yes'" ng-change="user.updateData('user.hasOptions', user.hasOptions)">Yes. The user can...
+    <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="'Yes'" ng-change="user.updateData('user.hasOptions', user.hasOptions)" ng-required="!user.hasOptions">Yes. The user can...
       <ul ng-if="user.hasOptions === 'Yes'">
         <li><input type="checkbox" ng-model="user.access" ng-change="user.updateData('user.access', user.access)">Access the data</li>
         <li><input type="checkbox" ng-model="user.edit" ng-change="user.updateData('user.edit', user.edit)">Edit the data</li>
@@ -12,9 +13,14 @@
         <li><input type="checkbox" ng-model="user.delete" ng-change="user.updateData('user.delete', user.delete)">Delete the data</li>
       </ul>
     </li>
-    <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="'No'" ng-change="user.updateData('user.hasOptions', user.hasOptions)">No</li>
+    <li><input type="radio" name="user.hasOptions" ng-model="user.hasOptions" ng-value="'No'" ng-change="user.updateData('user.hasOptions', user.hasOptions)" ng-required="!user.hasOptions">No</li>
   </ul>
 </main>
 <footer>
-  <button ui-sref="deactivation">Next</button>
+  <span ng-show="userForm.$invalid">Please Complete This Section</span>
+  <div class="footButtons">
+  <button ui-sref="privacy">Previous</button>
+  <button ng-disabled="userForm.$invalid" ui-sref="deactivation">Next</button>
+</div>
+</form>
 </footer>
