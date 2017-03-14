@@ -47,7 +47,7 @@
     <button class="animatedBtn previewBtn" ng-click="view.viewAnimated()">Preview</button>
     <button class="jsonBtn previewBtn" ng-click="view.viewJSON()">JSON</button>
   </header>
-  <div class="jsonPreview" ng-show="view.current === 'json'">{{view.jsonPreview}} </div>
+  <div class="jsonPreview" ng-show="view.current === 'json'"> var mpnData = {{view.jsonPreview}} </div>
   <div class="policyDisplayPreview" ng-show="view.current === 'animate'">
   <div class="policyDisplay"> </div>
 </div>
