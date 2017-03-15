@@ -30,7 +30,8 @@ $('#downloadButton').on('click', function(){
     this.viewAnimated = function() {
       self.current = 'animate';
 
-      function createDisplay() {
+
+function createDisplay() {
       // The selector for the container where the summary will be viewed. Ex) #idName, .className
       var containerSelector = '.policyDisplay';
       var $summary = $(containerSelector).html('');
@@ -306,7 +307,7 @@ $('#downloadButton').on('click', function(){
       $privacy.append("<h3>Privacy:</h3>");
       $privacy.append($privacyAccess);
       if (mpnData.privacy.requestPermissions === 'Yes') {
-          $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow rotate'));
+          $privacyAccess.append(setContainer('yellow', 'We will request access to device data or applications.', 'privacy-arrow'));
           $privacyAccess.append($privacyAccessInfo);
           $privacyAccessInfo.append('<h5>We will request access to:</h5>');
           $privacyAccessInfo.append($privacyAccessList);
@@ -334,9 +335,9 @@ $('#downloadButton').on('click', function(){
           $privacyAccessList.append('</ul>');
       }
        else if (mpnData.privacy.requestPermissions === 'No') {
-         $privacyAccess.detach();
-         $privacy.append($privacyAccessNoArrow);
-         $privacyAccessNoArrow.append(setContainer('green', 'We will not request access to device data or applications.'));
+        $privacyAccess.detach();
+          $privacy.append($privacyAccessNoArrow);
+           $privacyAccess.append(setContainer('green', 'We will not request access to device data or applications.'));
       }
       $privacy.append($privacySocial);
       if (mpnData.privacy.socialMedia === 'Yes') {
@@ -379,6 +380,7 @@ $('#downloadButton').on('click', function(){
       if (mpnData.policy.notificationMethod) {
           var $formText = $('<p>').text(mpnData.policy.notificationMethod);
           $policyQuestion.append($policyInfo);
+          $policyInfo.append('<div class="mpn-point"></div>');
           $policyInfo.append($formText);
       }
       // Breach Info
@@ -391,6 +393,7 @@ $('#downloadButton').on('click', function(){
       if (mpnData.breach.procedure) {
           var $formText = mpnData.breach.procedure;
           $breachQuestion.append($breachInfo);
+          $breachInfo.append('<div class="mpn-point"></div>');
           $breachInfo.append('<p>' + $formText + '</p>');
       }
       // Contact Info
@@ -456,7 +459,7 @@ $('#downloadButton').on('click', function(){
       if (width <= 420) {
         $('.policyDisplay .answer h4').css({"font-size": "1em", "width": "75%"});
         $('.policyDisplay #key-list .key-item.active').css("padding", " 0 4px 0 4px");
-        $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "80%", "margin": "0 0 0 40px"});
+        $('.policyDisplay .info-styles, .policyDisplay .mpn-id-container .share-info, .policyDisplay .mpn-id-container .sell-info, .policyDisplay .mpn-nonId-container .share-info, .policyDisplay .mpn-nonId-container .sell-info, .policyDisplay .mpn-user-access-container .user-options, .policyDisplay .mpn-privacy-container .privacy-access-info, .policyDisplay .mpn-policy-container .policy-question .policy-info, .policyDisplay .mpn-breach-container .breach-question .breach-info').css({"width": "85%", "margin": "0 0 0 40px"});
       }
       if (width <= 380) {
       $('.policyDisplay #key-list .key-item.active').css("padding", " 0 3px 0 3px");
