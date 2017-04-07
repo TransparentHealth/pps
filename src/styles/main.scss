@@ -11,6 +11,25 @@
 /***** Site Components ******/
 
 
+
+.mpnOverlay {
+              position: absolute;
+              height: 100%;
+              width: 100%;
+              top: 0;
+              left: 0;
+              background: transparent;
+              font-size: 30em;
+              color: #bdbec3;
+              opacity: .1;
+              display:  flex;
+              justify-content: center;
+              align-items: center;
+              z-index: -1;
+}
+
+
+
 button {
   font-size: 20px;
   padding: 10px;
@@ -37,11 +56,13 @@ body > header {
   background-color: #626572;
   color: #fff;
   font-size: 30px;
+
 }
 
 nav {
   width: 100%;
   background-color: #e0dcd1;
+  z-index: 99;
   ul {
     height: 100%;
     display: flex;
@@ -49,8 +70,9 @@ nav {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+
     li {
-      //pointer-events: none;
+
       padding: 10px;
       &:first-child {
         pointer-events: inherit;
@@ -110,7 +132,7 @@ body > main {
           font-size: 20px;
           margin: 15px 0;
           padding-bottom: 5px;
-          border-bottom: 2px solid  #e0dcd1;
+          border-bottom: 2px solid #bdbec3;
         }
 
       &.preview {
@@ -137,12 +159,26 @@ body > main {
       flex-direction: row;
       justify-content: space-between;
     }
-    .startBtn {
+    .welcomeBtn {
+      h1 {
+        font-size: 30px;
+        color:  #626572;
+      }
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    .startBtn {
+      font-size: 35px;
+      width: 400px;
+      align-self: center;
+      margin-top: 20px;
     }
+  }
 }
 
 .summaryPreview {
@@ -212,6 +248,8 @@ border-bottom:2px solid #000;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 5;
+  background-color: #fff;
 
   .mpnDirections {
     width: 55%;
