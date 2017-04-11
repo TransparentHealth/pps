@@ -28,33 +28,35 @@ An online example can be found @ http://transparenthealth.org/mpndisplay/index.h
 
 Here is the example `index.html` with comments:
 
-<!doctype html>
-<html lang="en">
-<head>
-<!--  The MPN styling-->
-  <link rel="stylesheet" href="http://transparenthealth.org/pps-display/lib/styles/mpn.min.css" type="text/css">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <!--  The MPN styling-->
+      <link rel="stylesheet" href="http://transparenthealth.org/pps-display/lib/styles/mpn.min.css" type="text/css">
 
-  <title>Example MPN</title>
-</head>
-<body>
-<h1>Example MPN</h1>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <title>Example MPN</title>
+    </head>
+    <body>
+       <h1>Example MPN</h1>
 
-<div class="policyDisplay"></div>
+       <!--The div that performs the display-->
+       <div class="policyDisplay"></div>
 
-<!-- Requires JQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+       <!-- Requires JQuery -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<!--The JSON representing your privacy notice-->
-<script src="src/js/json.js"></script>
+       <!--The JSON representing your privacy notice-->
+       <script src="src/js/json.js"></script>
+
+       <!--The JavaScript to render the privacy notice-->
+       <script src="http://transparenthealth.org/pps-display/lib/js/mpnDisplay.min.js"></script>
 
 
-<!--The JavaScript to render the privacy notice.-->
-<script src="http://transparenthealth.org/pps-display/lib/js/mpnDisplay.min.js"></script>
-
-</body>
-</html>
+    </body>
+    </html>
 
 
 
