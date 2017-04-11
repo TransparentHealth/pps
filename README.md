@@ -28,34 +28,33 @@ An online example can be found @ http://transparenthealth.org/mpndisplay/index.h
 
 Here is the example `index.html` with comments:
 
+<!doctype html>
+<html lang="en">
+<head>
+<!--  The MPN styling-->
+  <link rel="stylesheet" href="http://transparenthealth.org/pps-display/lib/styles/mpn.min.css" type="text/css">
 
-    <!doctype html>
-    <html lang="en">
-    <head>
-    <!--  The MPN styling-->
-      <link rel="stylesheet" href="lib/styles/mpn.min.css" type="text/css">
-      
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="shortcut icon" href="images/info.png" type="image/x-icon">
-      <title>Example MPN</title>
-    </head>
-    <body>
-       <h1>Example MPN</h1>
-       
-       <!--The div that performs the display-->
-       <div class="policyDisplay"></div>
-       
-       <!-- Requires JQuery -->
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-       
-       <!--The JSON representing your privacy notice-->
-       <script src="src/js/json.js"></script>
-       
-       <!--The JavaScript to render the privacy notice-->
-       <script src="lib/js/mpnDisplay.min.js"></script>
-    
-    </body>
-    </html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Example MPN</title>
+</head>
+<body>
+<h1>Example MPN</h1>
+
+<div class="policyDisplay"></div>
+
+<!-- Requires JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!--The JSON representing your privacy notice-->
+<script src="src/js/json.js"></script>
+
+
+<!--The JavaScript to render the privacy notice.-->
+<script src="http://transparenthealth.org/pps-display/lib/js/mpnDisplay.min.js"></script>
+
+</body>
+</html>
 
 
 
@@ -64,4 +63,3 @@ Instructions:
 
 This is a submission for the 2017 Privacy Policy Snapshot Challenge
 https://www.challenge.gov/challenge/privacy-policy-snapshot-challenge/
-
