@@ -1,6 +1,6 @@
 
 <main class="preview">
-  <div class="directionsContainer">
+  <div class="directionsContainer" ng-init="view.viewAnimated()">
     <div class="mpnDirections">
       <header><h3>Instructions</h3></header>
     <ul>
@@ -51,11 +51,10 @@
   <div class="policyDisplayPreview" ng-show="view.current === 'animate'">
   <div class="policyDisplay"> </div>
 </div>
+<div class="footButtons">
+<button ui-sref="contact">Previous</button>
+<button ui-sref="home">Home</button>
 </div>
 </div>
-<footer>
-  <div class="footButtons">
-  <button ui-sref="contact">Previous</button>
 </div>
-</footer>
 </main>
